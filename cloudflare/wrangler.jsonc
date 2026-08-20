@@ -1,0 +1,18 @@
+{
+  "$schema": "./node_modules/wrangler/config-schema.json",
+  "name": "bellweather-world",
+  "main": "src/index.js",
+  "compatibility_date": "2026-08-20",
+  "durable_objects": {
+    "bindings": [
+      { "name": "WORLD", "class_name": "BellweatherWorld" }
+    ]
+  },
+  "exports": {
+    "BellweatherWorld": { "type": "durable-object", "storage": "sqlite" }
+  },
+  "vars": {
+    "WORLD_NAME": "bellweather-main",
+    "ALLOWED_ORIGIN": "*"
+  }
+}
