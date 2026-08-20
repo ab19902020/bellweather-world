@@ -1,0 +1,31 @@
+[build]
+  publish = "netlify"
+  functions = "netlify/functions"
+  command = "npm run build"
+
+[functions]
+  node_bundler = "esbuild"
+
+[[redirects]]
+  from = "/api/world"
+  to = "/.netlify/functions/world"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/api/health"
+  to = "/.netlify/functions/health"
+  status = 200
+  force = true
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    Permissions-Policy = "camera=(), microphone=(), geolocation=()"
+
+[[headers]]
+  for = "/shared-world.js"
+  [headers.values]
+    Cache-Control = "no-store"
