@@ -1,0 +1,14 @@
+{
+  "name": "bellweather-world",
+  "private": true,
+  "version": "15.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "wrangler dev",
+    "deploy": "wrangler deploy",
+    "check": "node --check cloudflare/src/index.js && node --check cloudflare/src/sim.js && node --check cloudflare/src/brain.js && node --check cloudflare/src/util.js"
+  },
+  "devDependencies": {
+    "wrangler": "^4.0.0"
+  }
+}
